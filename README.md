@@ -19,23 +19,23 @@ Check the [browser compatibility](https://developer.mozilla.org/en-US/docs/Web/A
 
 # Quick Start
 
-1. Switch to the `WebGL` platform in `Build Settings
+1 Switch to the `WebGL` platform in `Build Settings
 
 ![image_1](images/image_1.png)
 
-2. Create one `WebGLSpeechDetectionPlugin` GameObject in the scene with the menu `GameObject->WebGLSpeechDetection->Create WebGLSpeechDetectionPlugion`
+2 Create one `WebGLSpeechDetectionPlugin` GameObject in the scene with the menu `GameObject->WebGLSpeechDetection->Create WebGLSpeechDetectionPlugion`
 
 ![image_2](images/image_2.png)
 
-3. (Optional) You may need a languages dropdown in your UI, use the menuitem `GameObject->WebGLSpeechDetection->Create Languages Dropdown`
+3 (Optional) You may need a languages dropdown in your UI, use the menuitem `GameObject->WebGLSpeechDetection->Create Languages Dropdown`
 
 ![image_3](images/image_3.png)
 
-4. (Optional) You may need a dialects dropdown in your UI, use the menuitem `GameObject->WebGLSpeechDetection->Create Dialects Dropdown`
+4 (Optional) You may need a dialects dropdown in your UI, use the menuitem `GameObject->WebGLSpeechDetection->Create Dialects Dropdown`
 
 ![image_4](images/image_4.png)
 
-5. This document can be accessed in `Assets/WebGLSpeechDetection/Readme.pdf` or use the menuitem `GameObject->WebGLSpeechDetection->Online Documentation`
+5 This document can be accessed in `Assets/WebGLSpeechDetection/Readme.pdf` or use the menuitem `GameObject->WebGLSpeechDetection->Online Documentation`
 
 ![image_5](images/image_5.png)
 
