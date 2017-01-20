@@ -35,15 +35,15 @@ This document can be accessed in `Assets/WebGLSpeechDetection/Readme.pdf` or use
 
 ![image_5](images/image_5.png)
 
-6. Create a custom MonoBehaviour script to use the `WebGLSpeechDetectionPlugin` API
+6 Create a custom MonoBehaviour script to use the `WebGLSpeechDetectionPlugin` API
 
-7. Add a using statement to get access to the `WebGLSpeechDetectionPlugin` namespace
+7 Add a using statement to get access to the `WebGLSpeechDetectionPlugin` namespace
 
 ```
 using UnityWebGLSpeechDetectionPlugin;
 ```
 
-8. Add a meta reference for `WebGLSpeechDetectionPlugin` to the script
+8 Add a meta reference for `WebGLSpeechDetectionPlugin` to the script
 
 ```
         /// <summary>
@@ -52,7 +52,7 @@ using UnityWebGLSpeechDetectionPlugin;
         public WebGLSpeechDetectionPlugin _mWebGLSpeechDetectionPlugin = null;
 ```
 
-9. Add a field to hold the available languages and dialects
+9 Add a field to hold the available languages and dialects
 
 ```
         /// <summary>
@@ -61,7 +61,7 @@ using UnityWebGLSpeechDetectionPlugin;
         private WebGLSpeechDetectionPlugin.LanguageResult _mLanguageResult = null;
 ```
 
-10. In the `start event` check if the plugin is available.
+10 In the `start event` check if the plugin is available.
 
 ```
         // Use this for initialization
@@ -86,7 +86,7 @@ using UnityWebGLSpeechDetectionPlugin;
         }
 ```
 
-11. In the `start event`, if the plugin is available, subscribe to detection events.
+11 In the `start event`, if the plugin is available, subscribe to detection events.
 
 ```
         void Start()
@@ -103,7 +103,7 @@ using UnityWebGLSpeechDetectionPlugin;
         }
 ```
 
-12. Use the plugin to get the available languages and dialects
+12 Use the plugin to get the available languages and dialects
 
 ```
         void Start()
@@ -120,7 +120,7 @@ using UnityWebGLSpeechDetectionPlugin;
         }
 ```
 
-13. Add a handler method to receive speech detection events
+13 Add a handler method to receive speech detection events
 
 ```
         /// <summary>
