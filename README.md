@@ -35,6 +35,105 @@ This document can be accessed in `Assets/WebGLSpeechDetection/Readme.pdf` or use
 
 ![image_5](images/image_5.png)
 
+6. Create a custom MonoBehaviour script to use the `WebGLSpeechDetectionPlugin` API
+
+7. Add a using statement to get access to the `WebGLSpeechDetectionPlugin` namespace
+
+```
+using UnityWebGLSpeechDetectionPlugin;
+```
+
+8. Add a meta reference for `WebGLSpeechDetectionPlugin` to the script
+
+```
+        /// <summary>
+        /// Reference to the plugin
+        /// </summary>
+        public WebGLSpeechDetectionPlugin _mWebGLSpeechDetectionPlugin = null;
+```
+
+9. Add a field to hold the available languages and dialects
+
+```
+        /// <summary>
+        /// Reference to the supported languages and dialects
+        /// </summary>
+        private WebGLSpeechDetectionPlugin.LanguageResult _mLanguageResult = null;
+```
+
+10. In the `start event` check if the plugin is available.
+
+```
+        // Use this for initialization
+        void Start()
+        {
+            // indicates the plugin is available
+            bool isAvailable = false;
+
+            // check the meta reference to the plugin
+            if (_mWebGLSpeechDetectionPlugin)
+            {
+                // check if the plugin is available
+                isAvailable = _mWebGLSpeechDetectionPlugin.IsAvailable();
+            }
+
+            // if not available, return
+            if (!isAvailable)
+            {
+                // show a warning
+                return;
+            }
+        }
+```
+
+11. In the `start event`, if the plugin is available, subscribe to detection events.
+
+```
+        void Start()
+        {
+            ...
+
+            if (!isAvailable)
+            {
+                return;
+            }
+
+            // subscribe to events
+            _mWebGLSpeechDetectionPlugin.OnDetectionResult += HandleDetectionResult;
+        }
+```
+
+12. Use the plugin to get the available languages and dialects
+
+```
+        void Start()
+        {
+            ...
+
+            if (!isAvailable)
+            {
+                return;
+            }
+
+            // Get languages and dialects from plugin
+            _mLanguageResult = _mWebGLSpeechDetectionPlugin.GetLanguages();
+        }
+```
+
+13. Add a handler method to receive speech detection events
+
+```
+        /// <summary>
+        /// Handler for speech detection events
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        void HandleDetectionResult(object sender,
+            WebGLSpeechDetectionPlugin.SpeechDetectionEventArgs args)
+        {
+        }
+```
+
 # Fonts
 
 UI text controls need to reference [fonts](https://en.wikipedia.org/wiki/List_of_CJK_fonts) that contain the entire character range for the selected language and dialect in order to display correctly.
