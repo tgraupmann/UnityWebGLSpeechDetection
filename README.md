@@ -23,13 +23,13 @@ This document can be accessed in `Assets/WebGLSpeechDetection/Readme.pdf` or use
 
 # Quick Start
 
-1 Switch to the `WebGL` platform in `Build Settings [?](images/image_1.png)
+1 Switch to the `WebGL` platform in `Build Settings [image_1](images/image_1.png)
 
-2 Create one `WebGLSpeechDetectionPlugin` GameObject in the scene with the menu `GameObject->WebGLSpeechDetection->Create WebGLSpeechDetectionPlugion` [?](images/image_2.png)
+2 Create one `WebGLSpeechDetectionPlugin` GameObject in the scene with the menu `GameObject->WebGLSpeechDetection->Create WebGLSpeechDetectionPlugion` [image_2](images/image_2.png)
 
-3 (Optional) You may need a languages dropdown in your UI, use the menuitem `GameObject->WebGLSpeechDetection->Create Languages Dropdown` [?](images/image_3.png)
+3 (Optional) You may need a languages dropdown in your UI, use the menuitem `GameObject->WebGLSpeechDetection->Create Languages Dropdown` [image_3](images/image_3.png)
 
-4 (Optional) You may need a dialects dropdown in your UI, use the menuitem `GameObject->WebGLSpeechDetection->Create Dialects Dropdown` [?](images/image_4.png)
+4 (Optional) You may need a dialects dropdown in your UI, use the menuitem `GameObject->WebGLSpeechDetection->Create Dialects Dropdown` [image_4](images/image_4.png)
 
 5 At this point you should have a scene with the `WebGLSpeechDetectionPlugin`, and (optionally) a couple dropdown controls added to the canvas.
 
@@ -186,3 +186,21 @@ using UnityWebGLSpeechDetectionPlugin;
 UI text controls need to reference [fonts](https://en.wikipedia.org/wiki/List_of_CJK_fonts) that contain the entire character range for the selected language and dialect in order to display correctly.
 
 [WenQuanYi](https://en.wikipedia.org/wiki/WenQuanYi) is licensed under `GNU General Public License`.
+
+# Scenes
+
+## Example01_Dictation
+
+The scene is located at `Assets/WebGLSpeechDetection/Scenes/Example01_Dictation.unity`
+
+![image_10](images/image_10.png)
+
+## Example02_Speech Commands
+
+The scene is located at `Assets/WebGLSpeechDetection/Scenes/Example02_Speech Commands.unity`
+
+![image_11](images/image_11.png)
+
+# Support
+
+Send questions and/or feedback to the support@theylovegames.com email.
