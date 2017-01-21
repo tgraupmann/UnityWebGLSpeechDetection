@@ -177,7 +177,7 @@ using UnityWebGLSpeechDetectionPlugin;
 17 Before a language is selected, disable the dialect dropdown
 
 ```
-// Disabled until a language is selected
+            // Disabled until a language is selected
             Utils.DisableDialects(_mDropDownDialects);
 ```
 
