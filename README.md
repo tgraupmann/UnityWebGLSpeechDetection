@@ -189,15 +189,15 @@ UI text controls need to reference [fonts](https://en.wikipedia.org/wiki/List_of
 
 # Scenes
 
-## Example01_Dictation
+## Example01 - Dictation
 
 The scene is located at `Assets/WebGLSpeechDetection/Scenes/Example01_Dictation.unity`
 
 ![image_10](images/image_10.png)
 
-## Example02_Speech Commands
+## Example02 - Speech Commands
 
-The scene is located at `Assets/WebGLSpeechDetection/Scenes/Example02_Speech Commands.unity`
+The scene is located at `Assets/WebGLSpeechDetection/Scenes/Example02_SpeechCommands.unity`
 
 ![image_11](images/image_11.png)
 
