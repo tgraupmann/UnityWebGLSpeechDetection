@@ -3,9 +3,10 @@ Unity WebGL Package For Speech Detection
 
 # Target
 
-The `Unity WebGL Speech Detection Package` is **only** intended for the `WebGL` platform and requires the `Chrome` browser.
-Speech detection uses the browser's built-in [Web Speech API](https://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html) and requires an Internet connection.
-Check the [browser compatibility](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API#Browser_compatibility) roadmap for browsers with the `Speech API` feature in development.
+The `Unity WebGL Speech Detection Package` is created for Unity version `5.5` or better.
+This package is **only** intended for the `WebGL` platform and requires a browser with the built-in [Web Speech API](https://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html), like Chrome.
+Detection requires an Internet connection.
+Check the [browser compatibility](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API#Browser_compatibility) to see which browsers implemented the `Speech API`.
 
 # Changelog
 
