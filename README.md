@@ -1,5 +1,5 @@
 # UnityWebGLSpeechDetection
-Unity WebGL Package For Speech Detection
+The WebGL For Speech Detection package is available in the [Unity Asset Store](https://www.assetstore.unity3d.com/en/#!/content/81076).
 
 # Target
 
