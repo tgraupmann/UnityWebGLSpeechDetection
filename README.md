@@ -36,23 +36,23 @@ This document can be accessed in `Assets/WebGLSpeechDetection/Readme.pdf` or use
 
 ![image_5](images/image_5.png)
 
-6 Create a custom MonoBehaviour script to use the `WebGLSpeechDetectionPlugin` API
+6 Create a custom MonoBehaviour script to use the `WebGLSpeechDetection` API
 
-7 Add a using statement to get access to the `WebGLSpeechDetectionPlugin` namespace
+7 Add a using statement to get access to the `WebGLSpeechDetection` namespace
 
 ```
-using UnityWebGLSpeechDetectionPlugin;
+using UnityWebGLSpeechDetection;
 ```
 
 ## Speech Detection Quick Setup
 
-8 Add a meta reference for `WebGLSpeechDetectionPlugin` to the script
+8 Add a reference for `WebGLSpeechDetectionPlugin` to the script
 
 ```
         /// <summary>
         /// Reference to the plugin
         /// </summary>
-        public WebGLSpeechDetectionPlugin _mWebGLSpeechDetectionPlugin = null;
+        private WebGLSpeechDetectionPlugin _mWebGLSpeechDetectionPlugin = null;
 ```
 
 9 In the `start event` check if the plugin is available.
@@ -63,6 +63,9 @@ using UnityWebGLSpeechDetectionPlugin;
         {
             // indicates the plugin is available
             bool isAvailable = false;
+
+            // get the singleton instance
+            _mWebGLSpeechDetectionPlugin = WebGLSpeechDetectionPlugin.GetInstance();
 
             // check the meta reference to the plugin
             if (_mWebGLSpeechDetectionPlugin)
@@ -134,52 +137,65 @@ using UnityWebGLSpeechDetectionPlugin;
                 return;
             }
 
-            // Get languages and dialects from plugin
-            _mLanguageResult = _mWebGLSpeechDetectionPlugin.GetLanguages();
+            // Get languages from plugin,
+            _mWebGLSpeechDetectionPlugin.GetLanguages((languageResult) =>
+            {
+                _mLanguageResult = languageResult;
+            });
         }
 ```
 
 14 Populate the language dropdown using the language result
 
 ```
-            // prepare the language drop down items
-            Utils.PopulateLanguagesDropdown(_mDropDownLanguages, _mLanguageResult);
+                // prepare the language drop down items
+                Utils.PopulateLanguagesDropdown(_mDropDownLanguages, _mLanguageResult);
 ```
 
 15 Handle language change events from the dropdown
 
 ```
-            // subscribe to language change events
-            if (_mDropDownLanguages)
-            {
-                _mDropDownLanguages.onValueChanged.AddListener(delegate {
-                    Utils.HandleLanguageChanged(_mDropDownLanguages,
-                        _mDropDownDialects,
-                        _mLanguageResult,
-                        _mWebGLSpeechDetectionPlugin);
-                });
-            }
+                // subscribe to language change events
+                if (_mDropDownLanguages)
+                {
+                    _mDropDownLanguages.onValueChanged.AddListener(delegate {
+                        Utils.HandleLanguageChanged(_mDropDownLanguages,
+                            _mDropDownDialects,
+                            _mLanguageResult,
+                            _mWebGLSpeechDetectionPlugin);
+                    });
+                }
 ```
 
 16 Handle dialect change events from the dropdown
 
 ```
-            // subscribe to dialect change events
-            if (_mDropDownDialects)
-            {
-                _mDropDownDialects.onValueChanged.AddListener(delegate {
-                    Utils.HandleDialectChanged(_mDropDownDialects,
-                        _mLanguageResult,
-                        _mWebGLSpeechDetectionPlugin);
-                });
-            }
+                // subscribe to dialect change events
+                if (_mDropDownDialects)
+                {
+                    _mDropDownDialects.onValueChanged.AddListener(delegate {
+                        Utils.HandleDialectChanged(_mDropDownDialects,
+                            _mLanguageResult,
+                            _mWebGLSpeechDetectionPlugin);
+                    });
+                }
 ```
 
 17 Before a language is selected, disable the dialect dropdown
 
 ```
-            // Disabled until a language is selected
-            Utils.DisableDialects(_mDropDownDialects);
+                // Disabled until a language is selected
+                Utils.DisableDialects(_mDropDownDialects);
+```
+
+18 Use player prefs to default to the last selected language and dialect
+
+```
+                // set the default language
+                Utils.SetDefaultLanguage(_mDropDownLanguages);
+
+                // set the default dialect
+                Utils.SetDefaultDialect(_mDropDownDialects);
 ```
 
 # Fonts
