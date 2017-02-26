@@ -59,6 +59,8 @@ The `WebGLSpeechDetectionPlugin` uses native detection only for the WebGL platfo
 ISpeechDetectionPlugin speechDetectionPlugin = WebGLSpeechDetectionPlugin.GetInstance();
 ```
 
+`WebGL` mode requires a `WebGLSpeechDetectionPlugin` gameobject in the scene which can be created from the `GameObject->WebGLSpeechDetection->Create WebGLSpeechDetectionPlugin` menu item.
+
 ## Proxy Mode
 
 The `ProxySpeechDetectionPlugin` uses a [Speech Proxy](https://github.com/tgraupmann/ChromeSpeechProxy) to do speech detection for non-WebGL platforms.
@@ -66,6 +68,14 @@ The `ProxySpeechDetectionPlugin` uses a [Speech Proxy](https://github.com/tgraup
 ```
 ISpeechDetectionPlugin speechDetectionPlugin = ProxySpeechDetectionPlugin.GetInstance();
 ```
+
+`Proxy` mode requires a `ProxySpeechDetectionPlugin` gameobject in the scene which can be created from the `GameObject->WebGLSpeechDetection->Create ProxySpeechDetectionPlugin` menu item.
+
+Also a [Speech Proxy](https://github.com/tgraupmann/ChromeSpeechProxy) needs to be running for `Proxy` mode to work.
+
+The `Proxy Port` is assigned by the `ProxySpeechDetectionPlugin` gameobject with the inspector and needs to match the port used by the [Speech Proxy](https://github.com/tgraupmann/ChromeSpeechProxy).
+
+![image_12](images/image_12.png)
 
 # Quick Start
 
