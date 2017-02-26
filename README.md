@@ -261,7 +261,7 @@ The scene is located at `Assets/WebGLSpeechDetection/Scenes/Example03_ProxyComma
 The example code is nearly identical to the SpeechCommands example, except for getting the detection instance from `ProxySpeechDetectionPlugin`.
 
 ```
-			// get the singleton instance
+            // get the singleton instance
             _mSpeechDetectionPlugin = ProxySpeechDetectionPlugin.GetInstance();
 ```
 
@@ -272,7 +272,7 @@ The scene is located at `Assets/WebGLSpeechDetection/Scenes/Example04_ProxyDicta
 The example code is nearly identical to the SpeechDictation example, except for getting the detection instance from `ProxySpeechDetectionPlugin`.
 
 ```
-			// get the singleton instance
+            // get the singleton instance
             _mSpeechDetectionPlugin = ProxySpeechDetectionPlugin.GetInstance();
 ```
 
