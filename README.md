@@ -127,18 +127,14 @@ using UnityWebGLSpeechDetection;
 10 In the `start event`, if the plugin is available, subscribe to detection events.
 
 ```
-        void Start()
-        {
-            ...
-
-            if (!isAvailable)
+            // wait for plugin to become available
+            while (!_mSpeechDetectionPlugin.IsAvailable())
             {
-                return;
+                yield return null;
             }
 
             // subscribe to events
             _mSpeechDetectionPlugin.AddListenerOnDetectionResult(HandleDetectionResult);
-        }
 ```
 
 11 Add a handler method to receive speech detection events
