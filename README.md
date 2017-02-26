@@ -33,11 +33,21 @@ Check the [browser compatibility](https://developer.mozilla.org/en-US/docs/Web/A
 
 This document can be accessed in `Assets/WebGLSpeechDetection/Readme.pdf` or use the menuitem `GameObject->WebGLSpeechDetection->Online Documentation`
 
+# Sample Scenes
+
+1 `Assets/WebGLSpeechDetection/Scenes/Example01_Dictation` - Uses WebGLSpeechDetectionPlugin to do speech dictation
+
+2 `Assets/WebGLSpeechDetection/Scenes/Example02_SpeechCommands` - Uses WebGLSpeechDetectionPlugin to do speech commands
+
+3 `Assets/WebGLSpeechDetection/Scenes/Example03_ProxyCommands` - Uses ProxySpeechDetectionPlugin to do speech commands
+
+4 `Assets/WebGLSpeechDetection/Scenes/Example04_ProxyDictation`- Uses ProxySpeechDetectionPlugin to do speech dictation
+
 # Quick Start
 
 1 Switch to the `WebGL` platform in `Build Settings [image_1](images/image_1.png)
 
-2 Create one `WebGLSpeechDetectionPlugin` GameObject in the scene with the menu `GameObject->WebGLSpeechDetection->Create WebGLSpeechDetectionPlugion` [image_2](images/image_2.png)
+2 Create one `WebGLSpeechDetectionPlugin` GameObject in the scene with the menu `GameObject->WebGLSpeechDetection->Create WebGLSpeechDetectionPlugin` [image_2](images/image_2.png)
 
 3 (Optional) You may need a languages dropdown in your UI, use the menuitem `GameObject->WebGLSpeechDetection->Create Languages Dropdown` [image_3](images/image_3.png)
 
