@@ -1,6 +1,10 @@
 # UnityWebGLSpeechDetection
 The WebGL For Speech Detection package is available in the [Unity Asset Store](https://www.assetstore.unity3d.com/en/#!/content/81076).
 
+# See Also
+
+The WebGL For Speech Synthesis package is available in the [Unity Asset Store](https://www.assetstore.unity3d.com/en/#!/content/81861).
+
 # Supported Platforms
 
 * WebGL
@@ -43,6 +47,26 @@ This document can be accessed in `Assets/WebGLSpeechDetection/Readme.pdf` or use
 
 4 `Assets/WebGLSpeechDetection/Scenes/Example04_ProxyDictation`- Uses ProxySpeechDetectionPlugin to do speech dictation
 
+# Modes
+
+Detection modes use the same API interface other than where the instance comes from.
+
+## WebGL Mode
+
+The `WebGLSpeechDetectionPlugin` uses native detection only for the WebGL platform.
+
+```
+ISpeechDetectionPlugin speechDetectionPlugin = WebGLSpeechDetectionPlugin.GetInstance();
+```
+
+## Proxy Mode
+
+The `ProxySpeechDetectionPlugin` uses a [Speech Proxy](https://github.com/tgraupmann/ChromeSpeechProxy) to do speech detection for non-WebGL platforms.
+
+```
+ISpeechDetectionPlugin speechDetectionPlugin = ProxySpeechDetectionPlugin.GetInstance();
+```
+
 # Quick Start
 
 1 Switch to the `WebGL` platform in `Build Settings [image_1](images/image_1.png)
@@ -73,33 +97,29 @@ using UnityWebGLSpeechDetection;
         /// <summary>
         /// Reference to the plugin
         /// </summary>
-        private WebGLSpeechDetectionPlugin _mWebGLSpeechDetectionPlugin = null;
+        private ISpeechDetectionPlugin _mSpeechDetectionPlugin = null;
 ```
 
 9 In the `start event` check if the plugin is available.
 
 ```
         // Use this for initialization
-        void Start()
+        IEnumerator Start()
         {
-            // indicates the plugin is available
-            bool isAvailable = false;
-
             // get the singleton instance
-            _mWebGLSpeechDetectionPlugin = WebGLSpeechDetectionPlugin.GetInstance();
+            _mSpeechDetectionPlugin = WebGLSpeechDetectionPlugin.GetInstance();
 
-            // check the meta reference to the plugin
-            if (_mWebGLSpeechDetectionPlugin)
+            // check the reference to the plugin
+            if (null == _mSpeechDetectionPlugin)
             {
-                // check if the plugin is available
-                isAvailable = _mWebGLSpeechDetectionPlugin.IsAvailable();
+                Debug.LogError("WebGL Speech Detection Plugin is not set!");
+                yield break;
             }
 
-            // if not available, return
-            if (!isAvailable)
+            // wait for plugin to become available
+            while (!_mSpeechDetectionPlugin.IsAvailable())
             {
-                // show a warning
-                return;
+                yield return null;
             }
         }
 ```
@@ -117,7 +137,7 @@ using UnityWebGLSpeechDetection;
             }
 
             // subscribe to events
-            _mWebGLSpeechDetectionPlugin.OnDetectionResult += HandleDetectionResult;
+            _mSpeechDetectionPlugin.AddListenerOnDetectionResult(HandleDetectionResult);
         }
 ```
 
@@ -129,8 +149,7 @@ using UnityWebGLSpeechDetection;
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        void HandleDetectionResult(object sender,
-            WebGLSpeechDetectionPlugin.SpeechDetectionEventArgs args)
+        void HandleDetectionResult(object sender, SpeechDetectionEventArgs args)
         {
         }
 ```
@@ -143,34 +162,24 @@ using UnityWebGLSpeechDetection;
         /// <summary>
         /// Reference to the supported languages and dialects
         /// </summary>
-        private WebGLSpeechDetectionPlugin.LanguageResult _mLanguageResult = null;
+        private LanguageResult _mLanguageResult = null;
 ```
 
 13 Use the plugin to get the available languages and dialects
 
 ```
-        void Start()
-        {
-            ...
-
-            if (!isAvailable)
-            {
-                return;
-            }
-
             // Get languages from plugin,
-            _mWebGLSpeechDetectionPlugin.GetLanguages((languageResult) =>
+            _mSpeechDetectionPlugin.GetLanguages((languageResult) =>
             {
                 _mLanguageResult = languageResult;
-            });
-        }
+            }
 ```
 
 14 Populate the language dropdown using the language result
 
 ```
                 // prepare the language drop down items
-                Utils.PopulateLanguagesDropdown(_mDropDownLanguages, _mLanguageResult);
+                SpeechDetectionUtils.PopulateLanguagesDropdown(_mDropDownLanguages, _mLanguageResult);
 ```
 
 15 Handle language change events from the dropdown
@@ -180,10 +189,10 @@ using UnityWebGLSpeechDetection;
                 if (_mDropDownLanguages)
                 {
                     _mDropDownLanguages.onValueChanged.AddListener(delegate {
-                        Utils.HandleLanguageChanged(_mDropDownLanguages,
+                        SpeechDetectionUtils.HandleLanguageChanged(_mDropDownLanguages,
                             _mDropDownDialects,
                             _mLanguageResult,
-                            _mWebGLSpeechDetectionPlugin);
+                            _mSpeechDetectionPlugin);
                     });
                 }
 ```
@@ -195,9 +204,9 @@ using UnityWebGLSpeechDetection;
                 if (_mDropDownDialects)
                 {
                     _mDropDownDialects.onValueChanged.AddListener(delegate {
-                        Utils.HandleDialectChanged(_mDropDownDialects,
+                        SpeechDetectionUtils.HandleDialectChanged(_mDropDownDialects,
                             _mLanguageResult,
-                            _mWebGLSpeechDetectionPlugin);
+                            _mSpeechDetectionPlugin);
                     });
                 }
 ```
@@ -206,17 +215,17 @@ using UnityWebGLSpeechDetection;
 
 ```
                 // Disabled until a language is selected
-                Utils.DisableDialects(_mDropDownDialects);
+                SpeechDetectionUtils.DisableDialects(_mDropDownDialects);
 ```
 
 18 Use player prefs to default to the last selected language and dialect
 
 ```
                 // set the default language
-                Utils.SetDefaultLanguage(_mDropDownLanguages);
+                SpeechDetectionUtils.SetDefaultLanguage(_mDropDownLanguages);
 
                 // set the default dialect
-                Utils.SetDefaultDialect(_mDropDownDialects);
+                SpeechDetectionUtils.SetDefaultDialect(_mDropDownDialects);
 ```
 
 # Fonts
@@ -238,6 +247,28 @@ The scene is located at `Assets/WebGLSpeechDetection/Scenes/Example01_Dictation.
 The scene is located at `Assets/WebGLSpeechDetection/Scenes/Example02_SpeechCommands.unity`
 
 ![image_11](images/image_11.png)
+
+## Example03 - Proxy Commands
+
+The scene is located at `Assets/WebGLSpeechDetection/Scenes/Example03_ProxyCommands`
+
+The example code is nearly identical to the SpeechCommands example, except for getting the detection instance from `ProxySpeechDetectionPlugin`.
+
+```
+			// get the singleton instance
+            _mSpeechDetectionPlugin = ProxySpeechDetectionPlugin.GetInstance();
+```
+
+## Example04 - Proxy Dictation
+
+The scene is located at `Assets/WebGLSpeechDetection/Scenes/Example04_ProxyDictation`
+
+The example code is nearly identical to the SpeechDictation example, except for getting the detection instance from `ProxySpeechDetectionPlugin`.
+
+```
+			// get the singleton instance
+            _mSpeechDetectionPlugin = ProxySpeechDetectionPlugin.GetInstance();
+```
 
 # Support
 
