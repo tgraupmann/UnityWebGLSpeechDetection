@@ -278,6 +278,12 @@ The example code is nearly identical to the SpeechDictation example, except for 
             _mSpeechDetectionPlugin = ProxySpeechDetectionPlugin.GetInstance();
 ```
 
+## Example05 - Proxy Management
+
+The scene is located at `Assets/WebGLSpeechDetection/Scenes/Example05_ProxyManagement.unity`
+
+![image_13](images/image_13.png)
+
 # Support
 
 Send questions and/or feedback to the support@theylovegames.com email.
