@@ -45,7 +45,9 @@ This document can be accessed in `Assets/WebGLSpeechDetection/Readme.pdf` or use
 
 3 `Assets/WebGLSpeechDetection/Scenes/Example03_ProxyCommands` - Uses ProxySpeechDetectionPlugin to do speech commands
 
-4 `Assets/WebGLSpeechDetection/Scenes/Example04_ProxyDictation`- Uses ProxySpeechDetectionPlugin to do speech dictation
+4 `Assets/WebGLSpeechDetection/Scenes/Example04_ProxyDictation`- Uses ProxySpeechDetectionPlugin to do speech dictation4 `Assets/WebGLSpeechDetection/Scenes/Example04_ProxyDictation`- Uses ProxySpeechDetectionPlugin to do speech dictation
+
+5 `Assets/WebGLSpeechDetection/Scenes/Example05_ProxyManagement`- Management methods for launching and modifying the proxy
 
 # Modes
 
