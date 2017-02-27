@@ -236,6 +236,46 @@ using UnityWebGLSpeechDetection;
                 SpeechDetectionUtils.SetDefaultDialect(_mDropDownDialects);
 ```
 
+## Proxy Management
+
+19 Launch the [Speech Proxy](https://github.com/tgraupmann/ChromeSpeechProxy)
+
+```
+            // get the singleton instance
+            _mSpeechSynthesisPlugin = ProxySpeechSynthesisPlugin.GetInstance();
+
+            // check the reference to the plugin
+            if (null != _mSpeechSynthesisPlugin)
+            {
+                // launch the proxy
+                _mSpeechSynthesisPlugin.ManagementLaunchProxy();
+            }
+```
+
+20 Set Proxy Port
+```
+int port = 83;
+_mSpeechSynthesisPlugin.ManagementSetProxyPort(port);
+```
+
+21 Open Browser Tab
+
+```
+_mSpeechSynthesisPlugin.ManagementOpenBrowserTab();
+```
+
+22 Close Browser Tab
+
+```
+_mSpeechSynthesisPlugin.ManagementCloseBrowserTab();
+```
+
+23 Close Proxy
+
+```
+_mSpeechSynthesisPlugin.ManagementCloseProxy();
+```
+
 # Fonts
 
 UI text controls need to reference [fonts](https://en.wikipedia.org/wiki/List_of_CJK_fonts) that contain the entire character range for the selected language and dialect in order to display correctly.
