@@ -242,38 +242,38 @@ using UnityWebGLSpeechDetection;
 
 ```
             // get the singleton instance
-            _mSpeechSynthesisPlugin = ProxySpeechSynthesisPlugin.GetInstance();
+            _mSpeechDetectionPlugin = _mSpeechDetectionPlugin.GetInstance();
 
             // check the reference to the plugin
-            if (null != _mSpeechSynthesisPlugin)
+            if (null != _mSpeechDetectionPlugin)
             {
                 // launch the proxy
-                _mSpeechSynthesisPlugin.ManagementLaunchProxy();
+                _mSpeechDetectionPlugin.ManagementLaunchProxy();
             }
 ```
 
 20 Set Proxy Port
 ```
 int port = 83;
-_mSpeechSynthesisPlugin.ManagementSetProxyPort(port);
+_mSpeechDetectionPlugin.ManagementSetProxyPort(port);
 ```
 
 21 Open Browser Tab
 
 ```
-_mSpeechSynthesisPlugin.ManagementOpenBrowserTab();
+_mSpeechDetectionPlugin.ManagementOpenBrowserTab();
 ```
 
 22 Close Browser Tab
 
 ```
-_mSpeechSynthesisPlugin.ManagementCloseBrowserTab();
+_mSpeechDetectionPlugin.ManagementCloseBrowserTab();
 ```
 
 23 Close Proxy
 
 ```
-_mSpeechSynthesisPlugin.ManagementCloseProxy();
+_mSpeechDetectionPlugin.ManagementCloseProxy();
 ```
 
 # Fonts
