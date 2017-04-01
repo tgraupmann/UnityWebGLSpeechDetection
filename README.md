@@ -27,6 +27,10 @@ Check the [browser compatibility](https://developer.mozilla.org/en-US/docs/Web/A
 
 1.1 - Added support for [Speech Proxy](https://github.com/tgraupmann/ChromeSpeechProxy)
 
+1.2 - Minor fixes
+
+1.3 - Added support for speech detection in edit mode
+
 # Demos
 
 [Demo 01 Unity Speech Dictation](https://theylovegames.com/UnityWebGLSpeechDetection_01Dictation/)
@@ -45,9 +49,13 @@ This document can be accessed in `Assets/WebGLSpeechDetection/Readme.pdf` or use
 
 3 `Assets/WebGLSpeechDetection/Scenes/Example03_ProxyCommands` - Uses ProxySpeechDetectionPlugin to do speech commands
 
-4 `Assets/WebGLSpeechDetection/Scenes/Example04_ProxyDictation`- Uses ProxySpeechDetectionPlugin to do speech dictation4 `Assets/WebGLSpeechDetection/Scenes/Example04_ProxyDictation`- Uses ProxySpeechDetectionPlugin to do speech dictation
+4 `Assets/WebGLSpeechDetection/Scenes/Example04_ProxyDictation` - Uses ProxySpeechDetectionPlugin to do speech dictation4 `Assets/WebGLSpeechDetection/Scenes/Example04_ProxyDictation`- Uses ProxySpeechDetectionPlugin to do speech dictation
 
-5 `Assets/WebGLSpeechDetection/Scenes/Example05_ProxyManagement`- Management methods for launching and modifying the proxy
+5 `Assets/WebGLSpeechDetection/Scenes/Example05_ProxyManagement` - Management methods for launching and modifying the proxy
+
+6 `Assets/WebGLSpeechDetection/Editor/Example06PanelDictation.cs` - Unity editor panel for speech dictation that works in play mode and edit mode
+
+7 `Assets/WebGLSpeechDetection/Editor/Example07PanelCommands.cs` - Unity editor panel for speech commands that works in play mode and edit mode
 
 # Modes
 
@@ -78,6 +86,16 @@ Also a [Speech Proxy](https://github.com/tgraupmann/ChromeSpeechProxy) needs to 
 The `Proxy Port` is assigned by the `ProxySpeechDetectionPlugin` gameobject with the inspector and needs to match the port used by the [Speech Proxy](https://github.com/tgraupmann/ChromeSpeechProxy).
 
 ![image_12](images/image_12.png)
+
+## Edit Mode
+
+The `EditorProxySpeechDetectionPlugin` uses a [Speech Proxy](https://github.com/tgraupmann/ChromeSpeechProxy) to do speech detection for editor windows in the Unity editor.
+
+```
+ISpeechDetectionPlugin speechDetectionPlugin = EditorProxySpeechDetectionPlugin.GetInstance();
+```
+
+![image_14](images/image_14.png)
 
 # Quick Start
 
