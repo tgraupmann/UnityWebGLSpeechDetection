@@ -173,10 +173,11 @@ using UnityWebGLSpeechDetection;
         /// <summary>
         /// Handler for speech detection events
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="args"></param>
-        void HandleDetectionResult(object sender, SpeechDetectionEventArgs args)
+        /// <param name="detectionResult"></param>
+        /// <returns>Return true if the result was handled</returns>
+        bool HandleDetectionResult(DetectionResult detectionResult)
         {
+            return false; //not handled
         }
 ```
 
@@ -341,6 +342,43 @@ The example code is nearly identical to the SpeechDictation example, except for 
 The scene is located at `Assets/WebGLSpeechDetection/Scenes/Example05_ProxyManagement.unity`
 
 ![image_13](images/image_13.png)
+
+## Example06 - Panel Dictation
+
+The editor panel script is located at `Assets/WebGLSpeechDetection/Editor/Example06PanelDictation.cs` and is activated via the `Window->WebGLSpeechDetection->Open Example06PanelDictation` menu item. 
+
+The example panel shows speech dictation working in edit and play modes.
+
+The panel example uses the `EditorProxySpeechDetectionPlugin` to proxy the speech api in `edit` mode.
+
+## Example07 - Panel Commands
+
+The editor panel script is located at `Assets/WebGLSpeechDetection/Editor/Example07PanelCommands.cs` and is activated via the `Window->WebGLSpeechDetection->Open Example07PanelCommands` menu item.
+
+The example panel shows speech commands working in edit and play modes.
+
+The panel example uses the `EditorProxySpeechDetectionPlugin` to proxy the speech api in `edit` mode.
+
+Several menu items are automated with speech in the `Assets/WebGLSpeechDetection/Editor/Menu.cs` script.
+
+Menu items are automated with speech using a custom attribute `SpeechDetectionAttribute`.
+ 
+The custom attribute takes a `spokenPhrase` which when spoken will invoke the `public static` method.
+
+The `spokenPhrase` can be a single or multiple words separated with a space and need to be spoken in the specified order.
+
+The `spokenPhrase` should also be lower cased.
+
+```
+        [SpeechDetectionAttribute(spokenPhrase: "duplicate")]
+        // needs to be public static
+        public static void EditDuplicate()
+        {
+            ... implementation ...
+        }
+```
+
+The example panel will detect any C# classes in the project that have `public static` methods with the `SpeechDetectionAttribute` custom attribute. 
 
 # Support
 
