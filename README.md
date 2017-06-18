@@ -9,14 +9,18 @@ The WebGL For Speech Synthesis package is available in the [Unity Asset Store](h
 
 * WebGL
 
-* Windows Standalone (using [Speech Proxy](https://github.com/tgraupmann/ChromeSpeechProxy))
+* Mac Standalone (using [Speech Proxy](https://github.com/tgraupmann/ConsoleChromeSpeechProxy))
 
-* Windows Unity Editor (using [Speech Proxy](https://github.com/tgraupmann/ChromeSpeechProxy))
+* Mac Unity Editor (using [Speech Proxy](https://github.com/tgraupmann/ConsoleChromeSpeechProxy))
+
+* Windows Standalone (using [Speech Proxy](https://github.com/tgraupmann/ConsoleChromeSpeechProxy))
+
+* Windows Unity Editor (using [Speech Proxy](https://github.com/tgraupmann/ConsoleChromeSpeechProxy))
 
 # Target
 
 The `Unity WebGL Speech Detection Package` is created for Unity version `5.3` or better.
-This package was originally created for the `WebGL` platform and supports other platforms using a [Speech Proxy](https://github.com/tgraupmann/ChromeSpeechProxy).
+This package was originally created for the `WebGL` platform and supports other platforms using a `Speech Proxy`.
 This package requires a browser with the built-in [Web Speech API](https://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html), like Chrome.
 Detection requires an Internet connection.
 Check the [browser compatibility](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API#Browser_compatibility) to see which browsers implemented the `Speech API`.
@@ -25,11 +29,13 @@ Check the [browser compatibility](https://developer.mozilla.org/en-US/docs/Web/A
 
 1.0 - Initial creation of the project
 
-1.1 - Added support for [Speech Proxy](https://github.com/tgraupmann/ChromeSpeechProxy)
+1.1 - Added support for `Speech Proxy`
 
 1.2 - Minor fixes
 
 1.3 - Added support for speech detection in edit mode
+
+1.4 - Added support for `MacOS` for `play-mode` and `edit-mode`
 
 # Demos
 
@@ -73,7 +79,7 @@ ISpeechDetectionPlugin speechDetectionPlugin = WebGLSpeechDetectionPlugin.GetIns
 
 ## Proxy Mode
 
-The `ProxySpeechDetectionPlugin` uses a [Speech Proxy](https://github.com/tgraupmann/ChromeSpeechProxy) to do speech detection for non-WebGL platforms.
+The `ProxySpeechDetectionPlugin` uses a `Speech Proxy` to do speech detection for non-WebGL platforms.
 
 ```
 ISpeechDetectionPlugin speechDetectionPlugin = ProxySpeechDetectionPlugin.GetInstance();
@@ -81,15 +87,15 @@ ISpeechDetectionPlugin speechDetectionPlugin = ProxySpeechDetectionPlugin.GetIns
 
 `Proxy` mode requires a `ProxySpeechDetectionPlugin` gameobject in the scene which can be created from the `GameObject->WebGLSpeechDetection->Create ProxySpeechDetectionPlugin` menu item.
 
-Also a [Speech Proxy](https://github.com/tgraupmann/ChromeSpeechProxy) needs to be running for `Proxy` mode to work.
+Also a `Speech Proxy` needs to be running for `Proxy` mode to work.
 
-The `Proxy Port` is assigned by the `ProxySpeechDetectionPlugin` gameobject with the inspector and needs to match the port used by the [Speech Proxy](https://github.com/tgraupmann/ChromeSpeechProxy).
+The `Proxy Port` is assigned by the `ProxySpeechDetectionPlugin` gameobject with the inspector and needs to match the port used by the `Speech Proxy`.
 
 ![image_12](images/image_12.png)
 
 ## Edit Mode
 
-The `EditorProxySpeechDetectionPlugin` uses a [Speech Proxy](https://github.com/tgraupmann/ChromeSpeechProxy) to do speech detection for editor windows in the Unity editor.
+The `EditorProxySpeechDetectionPlugin` uses a `Speech Proxy` to do speech detection for editor panels in the Unity editor.
 
 ```
 ISpeechDetectionPlugin speechDetectionPlugin = EditorProxySpeechDetectionPlugin.GetInstance();
@@ -257,7 +263,7 @@ using UnityWebGLSpeechDetection;
 
 ## Proxy Management
 
-19 Launch the [Speech Proxy](https://github.com/tgraupmann/ChromeSpeechProxy)
+19 Launch the `Speech Proxy`
 
 ```
             // get the singleton instance
