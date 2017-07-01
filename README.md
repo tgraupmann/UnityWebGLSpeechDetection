@@ -37,6 +37,8 @@ Check the [browser compatibility](https://developer.mozilla.org/en-US/docs/Web/A
 
 1.4 - Added support for `MacOS` for `play-mode` and `edit-mode`
 
+1.5 - Added dictation and command examples without GUI
+
 # Demos
 
 [Demo 01 Unity Speech Dictation](https://theylovegames.com/UnityWebGLSpeechDetection_01Dictation/)
@@ -62,6 +64,10 @@ This document can be accessed in `Assets/WebGLSpeechDetection/Readme.pdf` or use
 6 `Assets/WebGLSpeechDetection/Editor/Example06PanelDictation.cs` - Unity editor panel for speech dictation that works in play mode and edit mode
 
 7 `Assets/WebGLSpeechDetection/Editor/Example07PanelCommands.cs` - Unity editor panel for speech commands that works in play mode and edit mode
+
+8 `Assets/WebGLSpeechDetection/Scenes/Example08_NoGUIDictation` - Do dictation without a GUI
+
+9 `Assets/WebGLSpeechDetection/Scenes/Example09_NoGUISpeechCommands` - Do commands without a GUI
 
 # Modes
 
@@ -385,6 +391,18 @@ The `spokenPhrase` should also be lower cased.
 ```
 
 The example panel will detect any C# classes in the project that have `public static` methods with the `SpeechDetectionAttribute` custom attribute. 
+
+## Example08 - No GUI Dictation
+
+The scene is located at `Assets/WebGLSpeechDetection/Scenes/Example08_NoGUIDictation.unity`
+
+The example source is located at `Assets/WebGLSpeechDictation/Scripts/Example08NoGUIDictation.cs`.
+
+## Example09 - No GUI Speech Commands
+
+The scene is located at `Assets/WebGLSpeechDetection/Scenes/Example09_NoGUISpeechCommands.unity`
+
+The example source is located at `Assets/WebGLSpeechDictation/Scripts/Example09NoGUISpeechCommands.cs`.
 
 # Support
 
