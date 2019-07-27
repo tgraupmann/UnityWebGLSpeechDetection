@@ -5,7 +5,7 @@ The `WebGL for Speech Detection` package is available in the [Unity Asset Store]
 
 The `WebGL for Speech Synthesis` package is available in the [Unity Asset Store](https://www.assetstore.unity3d.com/en/#!/content/81861). [Online documentation](https://github.com/tgraupmann/UnityWebGLSpeechSynthesis) is available.
 
-The `WebGL Speech` package is available in the [Unity Asset Store](https://assetstore.unity.com/packages/tools/audio/webgl-speech-105831). 
+The `WebGL Speech` package is available in the [Unity Asset Store](https://assetstore.unity.com/packages/tools/audio/webgl-speech-105831).
 [Online documentation](https://github.com/tgraupmann/UnityWebGLSpeech) is available.
 
 # Supported Platforms
@@ -42,6 +42,13 @@ Check the [browser compatibility](https://developer.mozilla.org/en-US/docs/Web/A
 
 1.5 - Added dictation and command examples without GUI
 
+1.6 - Added buffering for language data
+
+1.7 - Cleaned up sample code
+
+1.8 - Updated sample scenes to use default 5000 port
+
+
 # Demos
 
 [Demo 01 Unity Speech Dictation](https://theylovegames.com/UnityWebGLSpeechDetection_01Dictation/)
@@ -54,23 +61,29 @@ This document can be accessed in `Assets/WebGLSpeechDetection/Readme.pdf` or use
 
 # Sample Scenes
 
-1 `Assets/WebGLSpeechDetection/Scenes/Example01_Dictation` - Uses WebGLSpeechDetectionPlugin to do speech dictation
+***These sample scenes are located in the `Assets/WebGLSpeechDetection/Scenes/` folder:***
 
-2 `Assets/WebGLSpeechDetection/Scenes/Example02_SpeechCommands` - Uses WebGLSpeechDetectionPlugin to do speech commands
+1 `Example01_Dictation` - Uses WebGLSpeechDetectionPlugin to do speech dictation
 
-3 `Assets/WebGLSpeechDetection/Scenes/Example03_ProxyCommands` - Uses ProxySpeechDetectionPlugin to do speech commands
+2 `Example02_SpeechCommands` - Uses WebGLSpeechDetectionPlugin to do speech commands
 
-4 `Assets/WebGLSpeechDetection/Scenes/Example04_ProxyDictation` - Uses ProxySpeechDetectionPlugin to do speech dictation4 `Assets/WebGLSpeechDetection/Scenes/Example04_ProxyDictation`- Uses ProxySpeechDetectionPlugin to do speech dictation
+3 `Example03_ProxyCommands` - Uses ProxySpeechDetectionPlugin to do speech commands
 
-5 `Assets/WebGLSpeechDetection/Scenes/Example05_ProxyManagement` - Management methods for launching and modifying the proxy
+4 `Example04_ProxyDictation` - Uses ProxySpeechDetectionPlugin to do speech dictation
 
-6 `Assets/WebGLSpeechDetection/Editor/Example06PanelDictation.cs` - Unity editor panel for speech dictation that works in play mode and edit mode
+5 `Example05_ProxyManagement` - Management methods for launching and modifying the proxy
 
-7 `Assets/WebGLSpeechDetection/Editor/Example07PanelCommands.cs` - Unity editor panel for speech commands that works in play mode and edit mode
+***These sample scenes are located in the `Assets/WebGLSpeechDetection/Editor/` folder:***
 
-8 `Assets/WebGLSpeechDetection/Scenes/Example08_NoGUIDictation` - Do dictation without a GUI
+6 `Example06PanelDictation.cs` - Unity editor panel for speech dictation that works in play mode and edit mode
 
-9 `Assets/WebGLSpeechDetection/Scenes/Example09_NoGUISpeechCommands` - Do commands without a GUI
+7 `Example07PanelCommands.cs` - Unity editor panel for speech commands that works in play mode and edit mode
+
+***These sample scenes are located in the `Assets/WebGLSpeechDetection/Scenes/` folder:***
+
+8 `Example08_NoGUIDictation` - Do dictation without a GUI
+
+9 `Example09_NoGUISpeechCommands` - Do commands without a GUI
 
 # Modes
 
@@ -360,7 +373,7 @@ The scene is located at `Assets/WebGLSpeechDetection/Scenes/Example05_ProxyManag
 
 ## Example06 - Panel Dictation
 
-The editor panel script is located at `Assets/WebGLSpeechDetection/Editor/Example06PanelDictation.cs` and is activated via the `Window->WebGLSpeechDetection->Open Example06PanelDictation` menu item. 
+The editor panel script is located at `Assets/WebGLSpeechDetection/Editor/Example06PanelDictation.cs` and is activated via the `Window->WebGLSpeechDetection->Open Example06PanelDictation` menu item.
 
 The example panel shows speech dictation working in edit and play modes.
 
@@ -377,7 +390,7 @@ The panel example uses the `EditorProxySpeechDetectionPlugin` to proxy the speec
 Several menu items are automated with speech in the `Assets/WebGLSpeechDetection/Editor/Menu.cs` script.
 
 Menu items are automated with speech using a custom attribute `SpeechDetectionAttribute`.
- 
+
 The custom attribute takes a `spokenPhrase` which when spoken will invoke the `public static` method.
 
 The `spokenPhrase` can be a single or multiple words separated with a space and need to be spoken in the specified order.
@@ -393,7 +406,7 @@ The `spokenPhrase` should also be lower cased.
         }
 ```
 
-The example panel will detect any C# classes in the project that have `public static` methods with the `SpeechDetectionAttribute` custom attribute. 
+The example panel will detect any C# classes in the project that have `public static` methods with the `SpeechDetectionAttribute` custom attribute.
 
 ## Example08 - No GUI Dictation
 
