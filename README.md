@@ -301,7 +301,7 @@ using UnityWebGLSpeechDetection;
 
 20 Set Proxy Port
 ```
-int port = 83;
+int port = 5000;
 _mSpeechDetectionPlugin.ManagementSetProxyPort(port);
 ```
 
