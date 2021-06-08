@@ -438,6 +438,132 @@ The scene is located at `Assets/WebGLSpeechDetection/Scenes/Example09_NoGUISpeec
 
 The example source is located at `Assets/WebGLSpeechDictation/Scripts/Example09NoGUISpeechCommands.cs`.
 
+# FAQ
+
+* Q: How do I set the default detection language?
+
+* A: You can set the default language by invoking from the `Start` coroutine.
+
+Here is a coroutine that sets the default language.
+
+```
+        /// <summary>
+        /// Set the detection language
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public IEnumerator SetLanguage(string languageDisplay)
+        {
+            // check the reference to the plugin
+            if (null == _mSpeechDetectionPlugin)
+            {
+                Debug.LogError("WebGL Speech Detection Plugin is not set!");
+                yield break;
+            }
+
+            // wait for plugin to become available
+            while (!_mSpeechDetectionPlugin.IsAvailable())
+            {
+                yield return null;
+            }
+
+            // Get languages from the plugin
+            _mSpeechDetectionPlugin.GetLanguages((languageResult) =>
+            {
+                // default detection language to JP
+                foreach (Language language in languageResult.languages)
+                {
+                    if (language.display == languageDisplay)
+                    {
+                        foreach (Dialect dialect in language.dialects)
+                        {
+                            _mSpeechDetectionPlugin.SetLanguage(dialect.name);
+                            Debug.LogFormat("Set default language={0} display={1} dialect={2} display={3}",
+                                language.name, language.display,
+                                dialect.name, dialect.display);
+                            return;
+                        }
+                    }
+                }
+            });
+        }
+```
+
+Here is a coroutine that sets the default language and dialect.
+
+```
+        public IEnumerator SetDialect(string languageDisplay, string dialectDisplay)
+        {
+            // check the reference to the plugin
+            if (null == _mSpeechDetectionPlugin)
+            {
+                Debug.LogError("WebGL Speech Detection Plugin is not set!");
+                yield break;
+            }
+
+            // wait for plugin to become available
+            while (!_mSpeechDetectionPlugin.IsAvailable())
+            {
+                yield return null;
+            }
+
+            // Get languages from the plugin
+            _mSpeechDetectionPlugin.GetLanguages((languageResult) =>
+            {
+                // default detection language to JP
+                foreach (Language language in languageResult.languages)
+                {
+                    if (language.display == languageDisplay)
+                    {
+                        foreach (Dialect dialect in language.dialects)
+                        {
+                            if (dialect.display == dialectDisplay)
+                            {
+                                _mSpeechDetectionPlugin.SetLanguage(dialect.name);
+                                Debug.LogFormat("Set default language={0} display={1} dialect={2} display={3}",
+                                    language.name, language.display,
+                                    dialect.name, dialect.display);
+                                return;
+                            }
+                        }
+                    }
+                }
+            });
+        }
+```
+
+Your start coroutine can set the default language.
+
+```
+        // Use this for initialization
+        IEnumerator Start()
+        {
+            // get the singleton instance
+            _mSpeechDetectionPlugin = SpeechDetectionUtils.GetInstance();
+
+            // check the reference to the plugin
+            if (null == _mSpeechDetectionPlugin)
+            {
+                Debug.LogError("WebGL Speech Detection Plugin is not set!");
+                yield break;
+            }
+
+            // wait for plugin to become available
+            while (!_mSpeechDetectionPlugin.IsAvailable())
+            {
+                yield return null;
+            }
+
+            // subscribe to events
+            _mSpeechDetectionPlugin.AddListenerOnDetectionResult(HandleDetectionResult);
+
+            // Default language
+            yield return SetLanguage("Japanese");
+        }
+```
+
+You can find the available proxy languages and dialects [here](https://github.com/tgraupmann/ConsoleChromeSpeechProxy/blob/master/proxy.html#L191).
+
 # Support
 
 Send questions and/or feedback to the support@theylovegames.com email.
