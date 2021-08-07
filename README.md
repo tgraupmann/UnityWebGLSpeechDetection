@@ -567,3 +567,5 @@ You can find the available proxy languages and dialects [here](https://github.co
 # Support
 
 Send questions and/or feedback to the support@theylovegames.com email.
+
+Support is also available in Discord, you can reach me at "Tim Graupmann#0611".
