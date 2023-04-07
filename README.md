@@ -1,4 +1,5 @@
 # UnityWebGLSpeechDetection
+
 The `WebGL for Speech Detection` package is available in the [Unity Asset Store](https://www.assetstore.unity3d.com/en/#!/content/81076). [Online documentation](https://github.com/tgraupmann/UnityWebGLSpeechDetection) is available.
 
 # See Also
@@ -22,7 +23,7 @@ The `WebGL Speech` package is available in the [Unity Asset Store](https://asset
 
 # Target
 
-The `WebGL for Speech Detection` package is created for Unity version `5.3` or better. This includes support for Unity 2017.X, 2018.X, and 2019.X.
+The `WebGL for Speech Detection` package is created for Unity version `5.3` or better. This includes support for Unity 2017.X, 2018.X, 2019.X, and 2021.X.
 This package was originally created for the `WebGL` platform and supports other platforms using a `Speech Proxy`.
 This package requires a browser with the built-in [Web Speech API](https://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html), like Chrome.
 Detection requires an Internet connection.
@@ -48,8 +49,7 @@ Check the [browser compatibility](https://developer.mozilla.org/en-US/docs/Web/A
 
 1.8 - Updated sample scenes to use default 5000 port
 
-1.9 - Added support for 2018.1 and 2019.1.
-
+1.9 - Added support for 2018.X, 2019.X, and 2021.X.
 
 # Demos
 
@@ -74,7 +74,7 @@ This document can be accessed in `Assets/WebGLSpeechDetection/Readme.pdf` or use
 <table border="1"><tr><td>
 Note: In December of 2018, Chrome added a speech restriction that the speak() method can't be invoked until a web page has some user interaction.
 
-https://www.chromestatus.com/feature/5687444770914304
+<https://www.chromestatus.com/feature/5687444770914304>
 </td></tr></table>
 
 # Sample Scenes
@@ -318,6 +318,7 @@ using UnityWebGLSpeechDetection;
 ```
 
 20 Set Proxy Port
+
 ```
 int port = 5000;
 _mSpeechDetectionPlugin.ManagementSetProxyPort(port);
