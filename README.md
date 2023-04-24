@@ -67,7 +67,13 @@ Check the [browser compatibility](https://developer.mozilla.org/en-US/docs/Web/A
 
 1.8 - Updated sample scenes to use default 5000 port
 
-1.9 - Added support for 2018.X, 2019.X, and 2021.X.
+1.9 - Added support for `2018.1` and `2019.1`.
+
+1.10 - Added support for `2020.X`
+
+1.11 - Added support for `2021.X`
+
+1.12 - Added support for `iOS 16.3.1`
 
 # Demos
 
