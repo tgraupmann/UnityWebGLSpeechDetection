@@ -2,6 +2,10 @@
 
 The `WebGL for Speech Detection` package is available in the [Unity Asset Store](https://www.assetstore.unity3d.com/en/#!/content/81076). [Online documentation](https://github.com/tgraupmann/UnityWebGLSpeechDetection) is available.
 
+# Attention:
+
+* Browsers made a recent update that throws exception when starting detection. You will need to update the JavaScript library with the latest fix. [Assets/Plugins/WebGL/WebGLSpeechDetectionPlugin.jslib](https://github.com/tgraupmann/UnityWebGLSpeechDetection/blob/master/Assets/Plugins/WebGL/WebGLSpeechDetectionPlugin.jslib)
+
 # See Also
 
 * The `WebGL for Speech Synthesis` package is available in the [Unity Asset Store](https://www.assetstore.unity3d.com/en/#!/content/81861). [Online documentation](https://github.com/tgraupmann/UnityWebGLSpeechSynthesis) is available.
